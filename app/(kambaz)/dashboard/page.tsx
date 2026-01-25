@@ -62,11 +62,11 @@ export default function Dashboard() {
 
         <div className="wd-dashboard-course"> 
           <Link href="/courses/1234" className="wd-dashboard-course-link">
-            <Image src="/images/music.png" width={200} height={150} alt="reactjs" />
+            <Image src="/images/biology.jpeg" width={200} height={150} alt="reactjs" />
             <div>
-              <h5> MUSC1235 Fundamentals of Western Music Theory </h5>
+              <h5> BIO1111 General Biology 1</h5>
               <p className="wd-dashboard-course-title">
-                Learn basics of Western music theory
+                Fundamentals of biology
               </p>
               <button> Go </button>
             </div>
@@ -75,18 +75,29 @@ export default function Dashboard() {
 
         <div className="wd-dashboard-course"> 
           <Link href="/courses/1234" className="wd-dashboard-course-link">
-            <Image src="/images/music.png" width={200} height={150} alt="reactjs" />
+            <Image src="/images/cybersecurity.jpeg" width={200} height={150} alt="reactjs" />
             <div>
-              <h5> MUSC1235 Fundamentals of Western Music Theory </h5>
+              <h5> CY2550 Foundations of Cybersecurity </h5>
               <p className="wd-dashboard-course-title">
-                Learn basics of Western music theory
+                Basics of cybersecurity
               </p>
               <button> Go </button>
             </div>
           </Link>
         </div>
-        <div className="wd-dashboard-course"> ... </div>
-        <div className="wd-dashboard-course"> ... </div>
+
+        <div className="wd-dashboard-course"> 
+          <Link href="/courses/1234" className="wd-dashboard-course-link">
+            <Image src="/images/hci.jpeg" width={200} height={150} alt="reactjs" />
+            <div>
+              <h5> CS2500 Human-Computer Interaction </h5>
+              <p className="wd-dashboard-course-title">
+                UX/UI designs
+              </p>
+              <button> Go </button>
+            </div>
+          </Link>
+        </div>
       </div>
     </div>
 );}
