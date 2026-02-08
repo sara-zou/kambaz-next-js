@@ -1,79 +1,92 @@
+import { Button, Col, Container, FormCheck, FormLabel, FormSelect, Row } from "react-bootstrap";
+import FormControl from "react-bootstrap/esm/FormControl";
 
 export default function AssignmentEditor() {
     return (
       <div id="wd-assignments-editor">
-        <label htmlFor="wd-name">Assignment Name</label>
-        <input id="wd-name" defaultValue="A1 - ENV + HTML" /><br /><br />
-        <textarea id="wd-description">
-          The assignment is available online Submit a link to the landing page of
-        </textarea>
+        <FormLabel>Assignment Name</FormLabel>
+        <FormControl type="name" defaultValue="A1" />
+        <FormControl type="descriptions" style={{ height: "200px" }}
+        defaultValue="The assignment is available online,
+        submit a link to the landing page of your web application." />
+        <div className="float-end">
+          <Row>
+       <Col sm={10}>
+       <FormLabel column sm={2}> Points </FormLabel>
+           <FormControl type="points" defaultValue="100"/>
+       </Col>
+       </Row>
+                
+       <Row>
+       <Col sm={10}>
+       <FormLabel column sm={2}> Assignment Group </FormLabel>
+       <FormSelect>
+                    <option value="0" defaultChecked>Assignments</option>
+                    <option value="1">Quizzes</option>
+                    <option value="2">Exams</option>
+                </FormSelect>
+       </Col>
+       </Row>
+
+       <Row>
+       <Col sm={10}>
+       <FormLabel column sm={2}> Display Grades as </FormLabel>
+       <FormSelect>
+                    <option value="0" defaultChecked>Assignments</option>
+                    <option value="1">Quizzes</option>
+                    <option value="2">Exams</option>
+                </FormSelect>
+       </Col>
+       </Row>
+
+       <Row>
+       <Col sm={10}>
+       <FormLabel column sm={2}> Submission Type </FormLabel>
+       <FormSelect>
+                    <option value="0" defaultChecked>Online</option>
+                    <option value="1">Paper</option>
+                </FormSelect>
+                <FormLabel column sm={2}> Online Entry Options </FormLabel>
+                <FormCheck type="switch" defaultChecked={false} label="Text Entry"/>
+                <FormCheck type="switch" defaultChecked={true}  label="Website URL"/>
+                <FormCheck type="switch" defaultChecked={false} label="Media Recordings"/>
+                <FormCheck type="switch" defaultChecked={false} label="Student Annotions"/>
+                <FormCheck type="switch" defaultChecked={false} label="File Uploads"/>
+
+       </Col>
+       </Row>
+
+       <FormLabel column sm={2}> Assign to </FormLabel>
+       <FormControl type="assignedTo" defaultValue="Everyone"/>
+       
+       <Row>
+        <Col column sm={2}>
+        <FormLabel column sm={2}> Due </FormLabel>
+        <FormControl type="dueDate" defaultValue="05/13/2024"/>
+        </Col>
+       </Row>
+
+       <Row>
+        <Col column sm={2}>
+        <FormLabel column sm={2}> Available From </FormLabel>
+        <FormControl type="dueDate" defaultValue="05/06/2024"/>
+        </Col>
+       </Row>
+
+       <Row>
+        <Col column sm={2}>
+        <FormLabel column sm={2}> Until </FormLabel>
+        <FormControl type="dueDate"/>
+        </Col>
+       </Row>
+       <Button variant="danger" size="lg" className="me-1 float-end" id="wd-collapse-all">
+     Save
+     </Button>
+       <Button variant="secondary" size="lg" className="me-1 float-end" id="wd-collapse-all">
+     Cancel
+     </Button>
+        </div>
         <br />
-        <table>
-          <tr>
-            <td align="right" valign="top">
-              <label htmlFor="wd-points">Points</label>
-            </td>
-            <td>
-              <input id="wd-points" defaultValue={100} />
-            </td>
-          </tr>
-
-          <label htmlFor="wd-assigments">Assignment Group</label>
-          <select id="wd-assignments">
-            <option value = "ASSIGNMENTS">ASSIGNMENTS</option>
-            <option value = "QUIZZES">QUIZZES</option>
-            <option value = "EXAMS">EXAMS</option>
-            <option value = "PROJECT">PROJECT</option>
-          </select>
-
-          <h5></h5>
-          <label htmlFor="wd-grade">Assignment Group</label>
-          <select id="wd-grade">
-            <option value = "percentage">percentage</option>
-            <option value = "letter">letter</option>
-          </select>
-
-          <h5></h5>
-          <label htmlFor="wd-submission">Submission Type</label>
-          <select id="wd-submission">
-            <option value = "online">online</option>
-            <option value = "paper">paper</option>
-          </select>
-          
-          <h5></h5>
-          <label>Online Entry Options</label><br/>
-
-          <input type="checkbox" name="check-entry" id="wd-chkbox-text"/>
-          <label htmlFor="wd-chkbox-chkbox">Text Entry</label><br/>
-
-          <input type="checkbox" name="check-entry" id="wd-chkbox-url"/>
-          <label htmlFor="wd-chkbox-url">Website URL</label><br/>
-
-          <input type="checkbox" name="check-entry" id="wd-chkbox-recording"/>
-          <label htmlFor="wd-chkbox-recording">Media Recordings</label><br/>
-
-          <h5></h5>
-          <label htmlFor="wd-assign">Assign to</label>
-          <input id="wd-assign" defaultValue="everyone" /><br /><br />
-
-
-          <h5></h5>
-          <label htmlFor="wd-due"> Due </label>
-            <input type="date"
-          defaultValue="2025-01-25"
-          id="wd-text-fieldsdue-dob"/><br/>
-
-          <h5></h5>
-          <label htmlFor="wd-from"> Available from </label>
-            <input type="date"
-          defaultValue="2025-01-10"
-          id="wd-from"/>
-
-          <label htmlFor="wd-to"> Until </label>
-            <input type="date"
-          defaultValue="2025-01-30"
-          id="wd-to"/>
-        </table>
       </div>
   );}
   
