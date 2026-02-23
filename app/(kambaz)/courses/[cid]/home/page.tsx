@@ -1,3 +1,4 @@
+import React from "react";
 import Modules from "../modules/page";
 import CourseStatus from "./Status";
 export default function Home() {
