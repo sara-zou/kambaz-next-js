@@ -5,7 +5,7 @@ import PassingDataOnEvent from "./PassingDataOnEvent";
 import PassingFunctions from "./PassingFunctions";
 import Counter from "./Counter";
 import BooleanStateVariables from "./BooleanStateVariables";
-import StringStateVariables from "./StringStateVariables.tsx";
+import StringStateVariables from "./StringStateVariables";
 import DateStateVariable from "./DateStateVariable";
 import ObjectStateVariable from "./ObjectStateVariable";
 import ArrayStateVariable from "./ArrayStateVariable";
