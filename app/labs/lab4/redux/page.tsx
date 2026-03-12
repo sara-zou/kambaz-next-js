@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import HelloRedux from "./hello/index.tsx";
+import HelloRedux from "./hello/index";
 import { Provider } from "react-redux";
 import store from "../store.ts";
-import CounterRedux from "./CounterRedux/index.tsx";
+import CounterRedux from "./CounterRedux/index";
 import AddRedux from "./AddRedux";
-import TodoList from "./todos/TodoList.tsx";
+import TodoList from "./todos/TodoList";
 
 export default function ReduxExamples() {
     return (
