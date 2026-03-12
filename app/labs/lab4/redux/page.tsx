@@ -2,7 +2,7 @@
 import React from "react";
 import HelloRedux from "./hello/index";
 import { Provider } from "react-redux";
-import store from "../store.ts";
+import store from "../store";
 import CounterRedux from "./CounterRedux/index";
 import AddRedux from "./AddRedux";
 import TodoList from "./todos/TodoList";
