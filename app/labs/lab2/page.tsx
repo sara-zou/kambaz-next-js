@@ -17,6 +17,7 @@ import BoostrapTables from "./BootstrapTables";
 import BoostrapLists from "./BootstrapLists";
 import BoostrapForms from "./BootstrapForms";
 import BootstrapNavigation from "./BootstrapNavigation";
+import React from "react";
 
 export default function Lab2() {
   return (

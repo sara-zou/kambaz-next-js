@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
 import TOC from "./TOC";
+import React from "react";
 
 
 export default function LabsLayout({
@@ -9,7 +10,7 @@ export default function LabsLayout({
    <table>
      <tbody>
        <tr>
-         <td valign="top" width="00px">
+         <td valign="top" width="100px">
            <TOC />
          </td>
          <td valign="top">{children}</td>
@@ -17,4 +18,3 @@ export default function LabsLayout({
      </tbody>
    </table>
 );}
-

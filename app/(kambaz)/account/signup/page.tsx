@@ -1,4 +1,5 @@
 import Link from "next/link";
+import React from "react";
 import { FormControl } from "react-bootstrap";
 export default function Signin() {
   return (
@@ -15,4 +16,5 @@ export default function Signin() {
             className="btn btn-primary w-100 mb-2">
             Sign up </Link>
       <Link id="wd-signin-link" href="/account/signin">Sign in</Link>
+
     </div> );}
