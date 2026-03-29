@@ -17,7 +17,7 @@ export default function AssignmentEditor() {
   const { assignments } = useSelector(
     (state: RootState) => state.assignmentsReducer);
 
-  const assignment = assignments.find((a: any) => a._id === aid);
+    const assignment = assignments.find((a: any) => a._id === aid) as any || {};
 
   const [title, setTitle] = useState(assignment?.title || "");
   const [description, setDescription] = useState(
