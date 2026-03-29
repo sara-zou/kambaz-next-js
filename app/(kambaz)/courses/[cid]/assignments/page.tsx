@@ -1,30 +1,50 @@
 "use client";
-
 import { FormControl, ListGroup, ListGroupItem } from "react-bootstrap";
 import AssignmentsControls from "./AssignmentsControl";
 import { BsGripVertical } from "react-icons/bs";
 import LessonControlButtons from "../modules/LessonControlButtons";
 import AssignmentsControlButtons from "./AssignmentsControlButtons";
 import { useParams } from "next/navigation";
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from "react";
+import * as client from "../../client";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../../store";
 import {
+  setAssignments,
   addAssignment,
   updateAssignment,
   deleteAssignment,
 } from "./reducer";
 
 export default function Assignments() {
-  
-  const { cid } = useParams();
+  const params = useParams<{ cid: string }>();
+  const cid = params.cid;
   const [assignmentTitle, setAssignmentTitle] = useState("");
-
   const { assignments } = useSelector(
     (state: RootState) => state.assignmentsReducer
   );
   const dispatch = useDispatch();
+  const onCreateAssignmentForCourse = async () => {
+    if (!cid) return;
+    const newAssignment = { title: assignmentTitle, course: cid };
+    const assignment = await client.createAssignmentForCourse(cid, newAssignment);
+    dispatch(setAssignments([...assignments, assignment]));
+  };
+
+  const fetchAssignments = async () => {
+    const modules = await client.findAssignmentsForCourse(cid as string);
+    dispatch(setAssignments(modules));
+  };
+
+  const onRemoveAssignment = async (assignmentId: string) => {
+    await client.deleteAssignment(assignmentId);
+    dispatch(deleteAssignment(assignmentId)); 
+  };
+
+  useEffect(() => {
+    fetchAssignments();
+  }, []);
+
   const { currentUser } = useSelector(
     (state: RootState) => state.accountReducer
   );
@@ -35,16 +55,12 @@ export default function Assignments() {
       <AssignmentsControls
         assignmentTitle={assignmentTitle}
         setAssignmentTitle={setAssignmentTitle}
-        addAssignment={() => {
-          dispatch(addAssignment({ title: assignmentTitle, course: cid }));
-          setAssignmentTitle("");
-        }}
+        addAssignment={onCreateAssignmentForCourse}
       />
       <br /><br /><br /><br />
 
       <ListGroup id="wd-modules" className="rounded-0">
         {assignments
-          .filter((assignment: any) => assignment.course === cid)
           .map((assignment: any) => (
             <ListGroupItem
               key={assignment._id}
@@ -73,8 +89,7 @@ export default function Assignments() {
 
                 {isFaculty && <AssignmentsControlButtons
                   assignmentId={assignment._id}
-                  deleteAssignment={(assignmentId) =>
-                    dispatch(deleteAssignment(assignmentId))
+                  deleteAssignment={(assignmentId) => onRemoveAssignment(assignmentId)
                   }
                 />}
                 
